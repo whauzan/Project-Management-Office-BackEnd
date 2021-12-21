@@ -1,25 +1,40 @@
 package com.pbo.pmo.service;
 
+import com.pbo.pmo.Pojos.EmployeeRequest;
+import com.pbo.pmo.model.Company;
 import com.pbo.pmo.model.Employee;
+import com.pbo.pmo.repository.CompanyRepository;
 import com.pbo.pmo.repository.EmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class EmployeeService implements EmployeeDomain {
     @Autowired
     private EmployeeRepository employeeRepository;
-
+    @Autowired
+    private CompanyRepository companyRepository;
 
     @Override
-    public Employee RegisterEmployee(Employee employee) {
-        return employeeRepository.save(employee);
+    public List<Employee> getAllEmployeesById(int company_id) {
+        return employeeRepository.findAllById(company_id);
     }
 
     @Override
-    public List<Employee> getAllEmployees() {
-        return employeeRepository.findAll();
+    public Employee addEmployee(EmployeeRequest employeeRequest) {
+        Optional<Company> company = companyRepository.findById(employeeRequest.company_id);
+
+        Employee employee = new Employee();
+        employee.setName(employeeRequest.name);
+        employee.setGender(employeeRequest.gender);
+        employee.setEmail(employeeRequest.email);
+        employee.setAddress(employeeRequest.address);
+        employee.setPhoneNumber(employeeRequest.phoneNumber);
+        employee.setCompany_id(company.get().getId());
+        return employeeRepository.save(employee);
     }
 }
