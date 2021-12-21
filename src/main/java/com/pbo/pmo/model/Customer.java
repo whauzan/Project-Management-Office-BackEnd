@@ -1,18 +1,17 @@
 package com.pbo.pmo.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;
-import java.util.Set;
 
 @Entity
-@Table(name = "companies")
-public class Company {
+@Table(name = "customers")
+public class Customer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(
-            name = "company_id",
+            name = "id",
             updatable = false
     )
     private int id;
@@ -22,42 +21,29 @@ public class Company {
     )
     private String name;
     @Column(
-            name = "phoneNumber",
+            name = "occupation",
             nullable = false
     )
-    private String phoneNumber;
+    private String occupation;
     @Column(
-            name = "email",
+            name="email",
             nullable = false
     )
     private String email;
     @Column(
-            name = "address",
+            name="address",
             nullable = false
     )
     private String address;
 
-    @JsonIgnore
-    @OneToMany(mappedBy = "company_id")
-    @JsonManagedReference
-    private Set<Customer> customerSet;
+    @Column(name = "company_id")
+    private int company_id;
+    @ManyToOne
+    @JoinColumn(name = "company_id", nullable = false, insertable = false, updatable = false)
+    @JsonBackReference
+    private Customer customer;
 
-    @JsonIgnore
-    @OneToMany(mappedBy = "company_id")
-    @JsonManagedReference
-    private Set<Employee> employeeSet;
-
-
-
-
-    public Company() {}
-
-    public Set<Customer> getCustomerSet() {
-        return customerSet;
-    }
-
-    public void setCustomerSet(Set<Customer> customerSet) {
-        this.customerSet = customerSet;
+    public Customer() {
     }
 
     public int getId() {
@@ -76,20 +62,12 @@ public class Company {
         this.name = name;
     }
 
-    public Set<Employee> getEmployeeSet() {
-        return employeeSet;
+    public String getOccupation() {
+        return occupation;
     }
 
-    public void setEmployeeSet(Set<Employee> employeeSet) {
-        this.employeeSet = employeeSet;
-    }
-
-    public String getPhoneNumber() {
-        return phoneNumber;
-    }
-
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
+    public void setOccupation(String occupation) {
+        this.occupation = occupation;
     }
 
     public String getEmail() {
@@ -106,5 +84,21 @@ public class Company {
 
     public void setAddress(String address) {
         this.address = address;
+    }
+
+    public int getCompany_id() {
+        return company_id;
+    }
+
+    public void setCompany_id(int company_id) {
+        this.company_id = company_id;
+    }
+
+    public Customer getCustomer() {
+        return customer;
+    }
+
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
     }
 }

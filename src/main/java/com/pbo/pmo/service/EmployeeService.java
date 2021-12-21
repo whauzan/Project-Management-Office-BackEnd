@@ -6,7 +6,6 @@ import com.pbo.pmo.model.Employee;
 import com.pbo.pmo.repository.CompanyRepository;
 import com.pbo.pmo.repository.EmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -27,7 +26,7 @@ public class EmployeeService implements EmployeeDomain {
     @Override
     public Employee addEmployee(EmployeeRequest employeeRequest) {
         Optional<Company> company = companyRepository.findById(employeeRequest.company_id);
-
+        System.out.println(company.get().getId());
         Employee employee = new Employee();
         employee.setName(employeeRequest.name);
         employee.setGender(employeeRequest.gender);

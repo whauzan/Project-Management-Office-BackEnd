@@ -1,5 +1,6 @@
 package com.pbo.pmo.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
@@ -13,7 +14,6 @@ public class Employee {
             name = "id",
             updatable = false
     )
-    @JsonIgnore
     private int id;
     @Column(
             name = "name",
@@ -41,10 +41,12 @@ public class Employee {
             nullable = false
     )
     private String phoneNumber;
+
     @Column(name = "company_id")
     private int company_id;
     @ManyToOne
     @JoinColumn(name = "company_id", nullable = false, insertable = false, updatable = false)
+    @JsonBackReference
     private Company company;
 
     public Employee() {
