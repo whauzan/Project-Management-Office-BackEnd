@@ -1,8 +1,11 @@
 package com.pbo.pmo.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 
 @Entity
+@Table(name = "employees")
 public class Employee {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -10,6 +13,7 @@ public class Employee {
             name = "id",
             updatable = false
     )
+    @JsonIgnore
     private int id;
     @Column(
             name = "name",
@@ -37,6 +41,11 @@ public class Employee {
             nullable = false
     )
     private String phoneNumber;
+    @Column(name = "company_id")
+    private int company_id;
+    @ManyToOne
+    @JoinColumn(name = "company_id", nullable = false, insertable = false, updatable = false)
+    private Company company;
 
     public Employee() {
     }
@@ -49,8 +58,24 @@ public class Employee {
 //        this.phoneNumber = phoneNumber;
 //    }
 
+    public int getCompany_id() {
+        return company_id;
+    }
+
+    public void setCompany_id(int company_id) {
+        this.company_id = company_id;
+    }
+
     public int getId() {
         return id;
+    }
+
+    public Company getCompany() {
+        return company;
+    }
+
+    public void setCompany(Company company) {
+        this.company = company;
     }
 
     public void setId(int id) {
