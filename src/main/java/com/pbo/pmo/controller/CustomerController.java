@@ -17,7 +17,6 @@ public class CustomerController {
 
     @PostMapping("/add")
     public Customer addCustomer(@RequestBody CustomerRequest customerRequest){
-
         return customerDomain.addCustomer(customerRequest);
     }
 
@@ -25,5 +24,4 @@ public class CustomerController {
     public List<Customer> list(@RequestBody CustomerRequest customerRequest) {
         return customerDomain.getAllCustomersById(customerRequest.company_id);
     };
-
 }
