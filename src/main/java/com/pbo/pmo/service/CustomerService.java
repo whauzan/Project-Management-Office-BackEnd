@@ -20,14 +20,12 @@ public class CustomerService implements CustomerDomain{
 
     @Override
     public List<Customer> getAllCustomersById(int company_id) {
-        System.out.println("get id nichh "+company_id);
-        return customerRepository.findAllById(1);
+        return customerRepository.findAllByCompanyId(company_id);
     }
 
     @Override
     public Customer addCustomer(CustomerRequest customerRequest) {
         Optional<Company> company = companyRepository.findById(customerRequest.company_id);
-        System.out.println(company.get().getId());
 
         Customer customer = new Customer();
         customer.setName(customerRequest.name);;
@@ -37,10 +35,4 @@ public class CustomerService implements CustomerDomain{
         customer.setCompany_id(company.get().getId());
         return customerRepository.save(customer);
     }
-
-//    @Override
-//    public List<Customer> getAllCustomer() {
-//        return customerRepository.findAll();
-//    }
-
 }

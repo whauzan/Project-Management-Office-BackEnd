@@ -20,7 +20,7 @@ public class EmployeeService implements EmployeeDomain {
 
     @Override
     public List<Employee> getAllEmployeesById(int company_id) {
-        return employeeRepository.findAllById(company_id);
+        return employeeRepository.findAllByCompanyId(company_id);
     }
 
     @Override

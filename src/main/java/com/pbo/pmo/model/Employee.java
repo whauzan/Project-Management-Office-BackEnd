@@ -1,7 +1,6 @@
 package com.pbo.pmo.model;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
 
@@ -51,14 +50,6 @@ public class Employee {
 
     public Employee() {
     }
-
-//    public Employee(String name, char gender, String email, String address, String phoneNumber) {
-//        this.name = name;
-//        this.gender = gender;
-//        this.email = email;
-//        this.address = address;
-//        this.phoneNumber = phoneNumber;
-//    }
 
     public int getCompany_id() {
         return company_id;
