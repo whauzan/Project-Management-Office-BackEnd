@@ -43,6 +43,10 @@ public class Customer {
     @JsonBackReference
     private Company company;
 
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "project_id", referencedColumnName = "id")
+    private Project project;
+
     public Customer() {
     }
 
@@ -100,5 +104,13 @@ public class Customer {
 
     public void setCompany(Company company) {
         this.company = company;
+    }
+
+    public Project getProject() {
+        return project;
+    }
+
+    public void setProject(Project project) {
+        this.project = project;
     }
 }
