@@ -1,5 +1,6 @@
 package com.pbo.pmo.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
@@ -49,6 +50,12 @@ public class Project {
     @JsonIgnore
     @OneToOne(mappedBy = "project")
     private Customer customer;
+
+    @Column(name = "project_manager_id")
+    private int project_manager_id;
+    @ManyToOne
+    @JoinColumn(name = "project_manager_id", nullable = false, insertable = false, updatable = false)
+    private ProjectManager projectManager;
 
     public Project() {
     }
@@ -108,4 +115,21 @@ public class Project {
     public void setCustomer(Customer customer) {
         this.customer = customer;
     }
+
+    public int getProject_manager_id() {
+        return project_manager_id;
+    }
+
+    public void setProject_manager_id(int project_manager_id) {
+        this.project_manager_id = project_manager_id;
+    }
+
+    public ProjectManager getProjectManager() {
+        return projectManager;
+    }
+
+    public void setProjectManager(ProjectManager projectManager) {
+        this.projectManager = projectManager;
+    }
+
 }

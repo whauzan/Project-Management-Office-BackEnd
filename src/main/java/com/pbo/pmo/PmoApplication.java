@@ -12,7 +12,6 @@ import java.util.List;
 @RestController
 @SpringBootApplication
 public class PmoApplication {
-
 	public static void main(String[] args) {
 		SpringApplication.run(PmoApplication.class, args);
 	}

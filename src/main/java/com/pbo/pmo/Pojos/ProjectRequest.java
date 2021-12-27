@@ -10,4 +10,5 @@ public class ProjectRequest {
     public int price;
     public Date duedate;
     public int customer_id;
+    public int project_manager_id;
 }

@@ -1,6 +1,7 @@
 package com.pbo.pmo.model;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
 
@@ -47,6 +48,11 @@ public class Employee {
     @JoinColumn(name = "company_id", nullable = false, insertable = false, updatable = false)
     @JsonBackReference
     private Company company;
+
+
+    @JsonIgnore
+    @OneToOne(mappedBy = "employee")
+    private ProjectManager projectManager;
 
     public Employee() {
     }
@@ -113,5 +119,13 @@ public class Employee {
 
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
+    }
+
+    public ProjectManager getProjectManager() {
+        return projectManager;
+    }
+
+    public void setProjectManager(ProjectManager projectManager) {
+        this.projectManager = projectManager;
     }
 }

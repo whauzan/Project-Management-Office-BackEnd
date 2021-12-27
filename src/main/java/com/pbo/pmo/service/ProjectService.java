@@ -4,6 +4,7 @@ import com.pbo.pmo.Pojos.ProjectRequest;
 import com.pbo.pmo.model.Customer;
 import com.pbo.pmo.model.Project;
 import com.pbo.pmo.repository.CustomerRepository;
+import com.pbo.pmo.repository.ProjectManagerRepository;
 import com.pbo.pmo.repository.ProjectRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,6 +18,8 @@ public class ProjectService implements ProjectDomain {
     private ProjectRepository projectRepository;
     @Autowired
     private CustomerRepository customerRepository;
+    @Autowired
+    private ProjectManagerRepository projectManagerRepository;
 
     @Override
     public Project addProject(ProjectRequest projectRequest) {
@@ -26,6 +29,7 @@ public class ProjectService implements ProjectDomain {
         project.setTechnolgy(projectRequest.technology);
         project.setPrice(projectRequest.price);
         project.setDuedate(projectRequest.duedate);
+        project.setProject_manager_id(projectRequest.project_manager_id);
         projectRepository.save(project);
 
         Customer customer = customerRepository.findById(projectRequest.customer_id)
