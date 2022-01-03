@@ -18,7 +18,7 @@ public class ProjectManagerController {
 
     @PostMapping("/add")
     public ProjectManager addProjectManager(@RequestBody ProjectManagerRequest projectManagerRequest){
-        return projectManagerDomain.addProjectManager(projectManagerRequest);
+        return projectManagerDomain.registProjectManager(projectManagerRequest);
     }
 
     @GetMapping("/get")

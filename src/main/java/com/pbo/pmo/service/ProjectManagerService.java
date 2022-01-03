@@ -19,7 +19,7 @@ public class ProjectManagerService implements ProjectManagerDomain {
     private EmployeeRepository employeeRepository;
 
     @Override
-    public ProjectManager addProjectManager(ProjectManagerRequest projectManagerRequest){
+    public ProjectManager registProjectManager(ProjectManagerRequest projectManagerRequest){
         Employee employee = employeeRepository.findById(projectManagerRequest.employee_id)
                 .orElseThrow(() -> new IllegalStateException(
                         "employee with id " + projectManagerRequest.employee_id + " does not exist"

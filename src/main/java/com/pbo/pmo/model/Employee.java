@@ -50,8 +50,12 @@ public class Employee {
     private Company company;
 
 
-    @JsonIgnore
-    @OneToOne(mappedBy = "employee")
+//    @JsonIgnore
+//    @OneToOne(mappedBy = "id")
+//    private ProjectManager projectManager;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "project_manager_id", referencedColumnName = "id")
     private ProjectManager projectManager;
 
     public Employee() {

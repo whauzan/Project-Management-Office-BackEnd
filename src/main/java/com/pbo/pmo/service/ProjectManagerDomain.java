@@ -6,7 +6,7 @@ import com.pbo.pmo.model.ProjectManager;
 import java.util.List;
 
 public interface ProjectManagerDomain {
-    ProjectManager addProjectManager(ProjectManagerRequest projectRequest);
+    ProjectManager registProjectManager(ProjectManagerRequest projectRequest);
 
     List<ProjectManager> getProjectManager();
 }
