@@ -48,7 +48,7 @@ public class ProjectManager {
     private Employee employee;
 
     @JsonIgnore
-    @OneToMany(mappedBy = "id")
+    @OneToMany(mappedBy = "project_manager_id")
     @JsonManagedReference
     private Set<Project> projectSet;
 

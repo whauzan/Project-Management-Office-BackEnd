@@ -3,6 +3,7 @@ package com.pbo.pmo.service;
 import com.pbo.pmo.Pojos.ProjectRequest;
 import com.pbo.pmo.model.Customer;
 import com.pbo.pmo.model.Project;
+import com.pbo.pmo.model.ProjectManager;
 import com.pbo.pmo.repository.CustomerRepository;
 import com.pbo.pmo.repository.ProjectManagerRepository;
 import com.pbo.pmo.repository.ProjectRepository;
