@@ -43,16 +43,14 @@ public class ProjectManager {
     )
     private String phoneNumber;
 
-//    @OneToOne(cascade = CascadeType.ALL)
-//    @JoinColumn(name = "id")
-//    private Employee employee;
-
     @JsonIgnore
     @OneToOne(mappedBy = "projectManager")
     private Employee employee;
-//    @JsonIgnore
-//    @OneToMany(mappedBy = "id")
-//    private Set<Project> projectSet;
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "id")
+    @JsonManagedReference
+    private Set<Project> projectSet;
 
     public ProjectManager() {
     }
@@ -105,12 +103,11 @@ public class ProjectManager {
         this.phoneNumber = phoneNumber;
     }
 
-//    public Set<Project> getProjectSet() {
-//        return projectSet;
-//    }
-//
-//
-//    public void setProjectSet(Set<Project> projectSet) {
-//        this.projectSet = projectSet;
-//    }
+    public Set<Project> getProjectSet() {
+        return projectSet;
+    }
+
+    public void setProjectSet(Set<Project> projectSet) {
+        this.projectSet = projectSet;
+    }
 }

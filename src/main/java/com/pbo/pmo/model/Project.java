@@ -55,6 +55,7 @@ public class Project {
     private int project_manager_id;
     @ManyToOne
     @JoinColumn(name = "project_manager_id", nullable = false, insertable = false, updatable = false)
+    @JsonBackReference
     private ProjectManager projectManager;
 
     public Project() {

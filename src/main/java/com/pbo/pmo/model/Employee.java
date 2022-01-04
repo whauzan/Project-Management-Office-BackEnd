@@ -49,11 +49,6 @@ public class Employee {
     @JsonBackReference
     private Company company;
 
-
-//    @JsonIgnore
-//    @OneToOne(mappedBy = "id")
-//    private ProjectManager projectManager;
-
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "project_manager_id", referencedColumnName = "id")
     private ProjectManager projectManager;
