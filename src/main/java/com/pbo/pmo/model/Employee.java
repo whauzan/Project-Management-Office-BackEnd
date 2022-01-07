@@ -53,6 +53,9 @@ public class Employee {
     @JoinColumn(name = "project_manager_id", referencedColumnName = "id")
     private ProjectManager projectManager;
 
+    @Column(name = "team_id")
+    private int team_id;
+
     public Employee() {
     }
 
@@ -126,5 +129,13 @@ public class Employee {
 
     public void setProjectManager(ProjectManager projectManager) {
         this.projectManager = projectManager;
+    }
+
+    public int getTeam_id() {
+        return team_id;
+    }
+
+    public void setTeam_id(int team_id) {
+        this.team_id = team_id;
     }
 }
