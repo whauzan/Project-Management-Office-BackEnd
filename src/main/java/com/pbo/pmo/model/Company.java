@@ -47,7 +47,10 @@ public class Company {
     @JsonManagedReference
     private Set<Employee> employeeSet;
 
-
+    @JsonIgnore
+    @OneToMany(mappedBy = "company_id")
+    @JsonManagedReference
+    private Set<Team> teamSet;
 
 
     public Company() {}
@@ -106,5 +109,13 @@ public class Company {
 
     public void setAddress(String address) {
         this.address = address;
+    }
+
+    public Set<Team> getTeamSet() {
+        return teamSet;
+    }
+
+    public void setTeamSet(Set<Team> teamSet) {
+        this.teamSet = teamSet;
     }
 }
