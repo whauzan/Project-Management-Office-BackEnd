@@ -9,7 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class EmployeeService implements EmployeeDomain {
@@ -25,15 +24,18 @@ public class EmployeeService implements EmployeeDomain {
 
     @Override
     public Employee addEmployee(EmployeeRequest employeeRequest) {
-        Optional<Company> company = companyRepository.findById(employeeRequest.company_id);
-        System.out.println(company.get().getId());
+        Company company = companyRepository.findById(employeeRequest.company_id)
+                        .orElseThrow(() -> new IllegalStateException(
+                                "company with id " + employeeRequest.company_id + " does not exist"
+                        ));
+
         Employee employee = new Employee();
         employee.setName(employeeRequest.name);
         employee.setGender(employeeRequest.gender);
         employee.setEmail(employeeRequest.email);
         employee.setAddress(employeeRequest.address);
         employee.setPhoneNumber(employeeRequest.phoneNumber);
-        employee.setCompany_id(company.get().getId());
+        employee.setCompany_id(company.getId());
         return employeeRepository.save(employee);
     }
 }

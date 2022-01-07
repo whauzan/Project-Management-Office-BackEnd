@@ -9,7 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class CustomerService implements CustomerDomain{
@@ -25,14 +24,17 @@ public class CustomerService implements CustomerDomain{
 
     @Override
     public Customer addCustomer(CustomerRequest customerRequest) {
-        Optional<Company> company = companyRepository.findById(customerRequest.company_id);
+        Company company = companyRepository.findById(customerRequest.company_id)
+                .orElseThrow(() -> new IllegalStateException(
+                        "company with id " + customerRequest.company_id + " does not exist"
+                ));
 
         Customer customer = new Customer();
         customer.setName(customerRequest.name);;
         customer.setOccupation(customerRequest.occupation);
         customer.setEmail(customerRequest.email);
         customer.setAddress(customerRequest.address);
-        customer.setCompany_id(company.get().getId());
+        customer.setCompany_id(company.getId());
         return customerRepository.save(customer);
     }
 }
