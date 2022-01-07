@@ -6,6 +6,6 @@ import com.pbo.pmo.model.Employee;
 import java.util.List;
 
 public interface EmployeeDomain {
-    public List<Employee> getAllEmployeesById(int company_id);
-    public Employee addEmployee(EmployeeRequest employeeRequest);
+    List<Employee> getAllEmployeesById(int company_id);
+    Employee addEmployee(EmployeeRequest employeeRequest);
 }
