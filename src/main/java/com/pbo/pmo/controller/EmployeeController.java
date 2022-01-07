@@ -16,8 +16,8 @@ public class EmployeeController {
     private EmployeeDomain employeeDomain;
 
     @GetMapping("/get")
-    public List<Employee> list(@RequestBody EmployeeRequest employeeRequest) {
-        return employeeDomain.getAllEmployeesById(employeeRequest.company_id);
+    public List<Employee> list(@RequestParam int company_id) {
+        return employeeDomain.getAllEmployeesById(company_id);
     }
 
     @PostMapping("/save")
