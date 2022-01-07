@@ -3,15 +3,12 @@ package com.pbo.pmo.service;
 import com.pbo.pmo.Pojos.ProjectRequest;
 import com.pbo.pmo.model.Customer;
 import com.pbo.pmo.model.Project;
-import com.pbo.pmo.model.ProjectManager;
 import com.pbo.pmo.repository.CustomerRepository;
-import com.pbo.pmo.repository.ProjectManagerRepository;
 import com.pbo.pmo.repository.ProjectRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class ProjectService implements ProjectDomain {
@@ -19,8 +16,6 @@ public class ProjectService implements ProjectDomain {
     private ProjectRepository projectRepository;
     @Autowired
     private CustomerRepository customerRepository;
-    @Autowired
-    private ProjectManagerRepository projectManagerRepository;
 
     @Override
     public Project addProject(ProjectRequest projectRequest) {

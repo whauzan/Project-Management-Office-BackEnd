@@ -37,14 +37,6 @@ public class ProjectManagerService implements ProjectManagerDomain {
     }
     @Override
     public List<ProjectManager> getProjectManager() {
-        List<ProjectManager> test = projectManagerRepository.findAll();
-        System.out.println("AAAAAAAAAAAAAAAAAAAAAA"+test);
-        ProjectManager x;
-        for (int i = 0; i < test.size(); i++) {
-
-            // accessing each element of array
-            x = test.get(i);
-            System.out.print(x.getName() + " ");
-        }
-        return projectManagerRepository.findAll();}
+        return projectManagerRepository.findAll();
+    }
 }
