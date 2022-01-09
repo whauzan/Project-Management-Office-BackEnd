@@ -32,6 +32,8 @@ public class ProjectManagerService implements ProjectManagerDomain {
         projectManager.setId(employee.getId());
         projectManager.setEmail(employee.getEmail());
         projectManager.setPhoneNumber(employee.getPhoneNumber());
+        employee.setProjectManager(projectManager);
+        employeeRepository.save(employee);
         projectManagerRepository.save(projectManager);
         return projectManager;
     }
