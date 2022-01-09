@@ -11,7 +11,6 @@ import java.util.Set;
 @Table(name = "projectManager")
 public class ProjectManager {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(
             name = "id"
     )
