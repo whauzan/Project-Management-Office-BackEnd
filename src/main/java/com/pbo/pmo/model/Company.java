@@ -28,7 +28,8 @@ public class Company {
     private String phoneNumber;
     @Column(
             name = "email",
-            nullable = false
+            nullable = false,
+            unique = true
     )
     private String email;
     @Column(

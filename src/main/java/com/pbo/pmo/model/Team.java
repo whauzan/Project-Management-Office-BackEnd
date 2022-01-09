@@ -37,6 +37,11 @@ public class Team {
     @JsonManagedReference
     private Set<Employee> memberSet;
 
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "scrum_id", referencedColumnName = "id")
+    private Scrum scrum;
+
+
     public Team() {
     }
 

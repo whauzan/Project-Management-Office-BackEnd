@@ -56,6 +56,9 @@ public class Employee {
     @Column(name = "team_id")
     private int team_id;
 
+    @Column(name = "task_id")
+    private int task_id;
+
     public Employee() {
     }
 
@@ -137,5 +140,13 @@ public class Employee {
 
     public void setTeam_id(int team_id) {
         this.team_id = team_id;
+    }
+
+    public int getTask_id() {
+        return task_id;
+    }
+
+    public void setTask_id(int task_id) {
+        this.task_id = task_id;
     }
 }

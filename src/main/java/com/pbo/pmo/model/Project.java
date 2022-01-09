@@ -58,6 +58,10 @@ public class Project {
     @JsonBackReference
     private ProjectManager projectManager;
 
+    @JsonIgnore
+    @OneToOne(mappedBy = "project")
+    private Scrum scrum;
+
     public Project() {
     }
 

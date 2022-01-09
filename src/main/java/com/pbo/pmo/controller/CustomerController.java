@@ -21,7 +21,7 @@ public class CustomerController {
     }
 
     @GetMapping("/get")
-    public List<Customer> list(@RequestBody CustomerRequest customerRequest) {
-        return customerDomain.getAllCustomersById(customerRequest.company_id);
+    public List<Customer> list(@RequestParam  int company_id) {
+        return customerDomain.getAllCustomersById(company_id);
     };
 }
