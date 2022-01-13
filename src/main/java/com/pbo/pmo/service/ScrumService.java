@@ -43,4 +43,9 @@ public class ScrumService implements ScrumDomain{
 
         return scrumRepository.save(scrum);
     }
+
+    @Override
+    public Scrum getByProject_id(int id) {
+        return scrumRepository.findByProject_id(id);
+    }
 }

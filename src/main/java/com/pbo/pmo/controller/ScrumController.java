@@ -26,4 +26,9 @@ public class ScrumController {
     public List<Scrum> list() {
         return scrumDomain.getAllScrum();
     }
+
+    @GetMapping("getone")
+    public Scrum getone(@RequestParam int id) {
+        return scrumDomain.getByProject_id(id);
+    }
 }

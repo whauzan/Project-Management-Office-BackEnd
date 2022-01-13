@@ -6,4 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface ScrumRepository extends JpaRepository<Scrum,Integer> {
+    Scrum findByProject_id(int id);
 }
