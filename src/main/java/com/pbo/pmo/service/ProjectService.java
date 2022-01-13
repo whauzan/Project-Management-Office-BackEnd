@@ -22,7 +22,7 @@ public class ProjectService implements ProjectDomain {
         Project project = new Project();
         project.setName(projectRequest.name);
         project.setType(projectRequest.type);
-        project.setTechnolgy(projectRequest.technology);
+        project.setTechnology(projectRequest.technology);
         project.setPrice(projectRequest.price);
         project.setDuedate(projectRequest.duedate);
         project.setProject_manager_id(projectRequest.project_manager_id);

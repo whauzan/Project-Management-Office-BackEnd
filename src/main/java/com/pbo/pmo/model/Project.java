@@ -33,7 +33,7 @@ public class Project {
             name = "technology",
             nullable = false
     )
-    private String technolgy;
+    private String technology;
 
     @Column(
             name = "price",
@@ -89,12 +89,20 @@ public class Project {
         this.type = type;
     }
 
-    public String getTechnolgy() {
-        return technolgy;
+    public String getTechnology() {
+        return technology;
     }
 
-    public void setTechnolgy(String technolgy) {
-        this.technolgy = technolgy;
+    public void setTechnology(String technology) {
+        this.technology = technology;
+    }
+
+    public Scrum getScrum() {
+        return scrum;
+    }
+
+    public void setScrum(Scrum scrum) {
+        this.scrum = scrum;
     }
 
     public int getPrice() {
