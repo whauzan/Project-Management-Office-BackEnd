@@ -32,19 +32,23 @@ public class TaskService implements TaskDomain{
     @Override
     public Task addTask(TaskRequest taskRequest) {
         Task task = new Task();
+        System.out.println("asiiiiiiiiiappppppp" + taskRequest.employee_id);
         task.setName(taskRequest.name);
         task.setDescription(taskRequest.description);
+        task.setDone(false);
         Employee employee = employeeRepository.findById(taskRequest.employee_id)
                         .orElseThrow(() -> new IllegalStateException(
                                 "employee with id " + taskRequest.employee_id + " does not exist"
                         ));
+        System.out.println(employee.getName());
+
         task.setEmployee(employee);
 
         Scrum scrum = scrumRepository.findById(taskRequest.scrum_id)
                 .orElseThrow(() -> new IllegalStateException(
-                        "employee with id " + taskRequest.scrum_id + " does not exist"
+                        "scrum with id " + taskRequest.scrum_id + " does not exist"
                 ));
-        task.setScrum(scrum);
+        task.setScrum_id(scrum.getId());
         return taskRepository.save(task);
     }
 

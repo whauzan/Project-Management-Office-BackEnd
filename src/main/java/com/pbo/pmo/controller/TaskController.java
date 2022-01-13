@@ -22,7 +22,7 @@ public class TaskController {
     }
 
     @GetMapping("/get")
-    public List<Task> list(@RequestBody int scrum_id){
+    public List<Task> list(@RequestParam int scrum_id){
         return taskDomain.getAllTaskByScrumID(scrum_id);
     }
 }

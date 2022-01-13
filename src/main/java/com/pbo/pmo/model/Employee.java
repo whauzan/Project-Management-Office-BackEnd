@@ -56,8 +56,9 @@ public class Employee {
     @Column(name = "team_id")
     private int team_id;
 
-    @Column(name = "task_id")
-    private int task_id;
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "task_id",referencedColumnName = "id")
+    private Task task;
 
     public Employee() {
     }
@@ -142,11 +143,11 @@ public class Employee {
         this.team_id = team_id;
     }
 
-    public int getTask_id() {
-        return task_id;
+    public Task getTask() {
+        return task;
     }
 
-    public void setTask_id(int task_id) {
-        this.task_id = task_id;
+    public void setTask(Task task) {
+        this.task = task;
     }
 }

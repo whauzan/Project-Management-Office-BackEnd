@@ -12,7 +12,8 @@ public class Scrum {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(
-            name ="id"
+            name ="id",
+            updatable = false
     )
     private int id;
     @Column(

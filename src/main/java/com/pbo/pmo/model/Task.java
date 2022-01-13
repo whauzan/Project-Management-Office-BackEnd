@@ -26,7 +26,8 @@ public class Task {
     private String description;
     @Column(
             name = "done",
-            columnDefinition = "boolean default false"
+            columnDefinition = "boolean default false",
+            nullable = false
     )
     private Boolean done;
     @OneToOne(cascade = CascadeType.ALL)
