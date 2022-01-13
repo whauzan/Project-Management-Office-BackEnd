@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/projectManager")
@@ -23,4 +24,7 @@ public class ProjectManagerController {
 
     @GetMapping("/get")
     public List<ProjectManager> list() { return projectManagerDomain.getProjectManager(); }
+
+    @GetMapping("/getone")
+    public Optional<ProjectManager> getOne(@RequestParam int id) { return projectManagerDomain.getProjectManagerById(id); }
 }

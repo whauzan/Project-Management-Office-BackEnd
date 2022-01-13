@@ -1,13 +1,14 @@
 package com.pbo.pmo.service;
 
+import com.pbo.pmo.Pojos.TaskRequest;
 import com.pbo.pmo.Pojos.TeamRequest;
 import com.pbo.pmo.model.Task;
 
 import java.util.List;
 
 public interface TaskDomain {
-    List<Task> getAllTaskByScrumID();
-    Task addTask(TeamRequest teamRequest);
+    List<Task> getAllTaskByScrumID(int scrum_id);
+    Task addTask(TaskRequest taskRequest);
     Task editStatus(Integer id);
 
 }

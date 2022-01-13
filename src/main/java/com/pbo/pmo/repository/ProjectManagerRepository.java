@@ -9,4 +9,5 @@ import java.util.List;
 @Repository
 public interface ProjectManagerRepository extends JpaRepository<ProjectManager,Integer> {
     List<ProjectManager> findAll();
+
 }

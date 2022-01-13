@@ -22,7 +22,7 @@ public class Scrum {
     private String name;
 
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "project_id", referencedColumnName = "id")
+    @JoinColumn(name = "project_id", referencedColumnName = "id",unique = true)
     private Project project;
 
     @OneToOne(cascade = CascadeType.ALL)

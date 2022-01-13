@@ -26,7 +26,6 @@ public class Task {
     private String description;
     @Column(
             name = "done",
-            nullable = false,
             columnDefinition = "boolean default false"
     )
     private Boolean done;

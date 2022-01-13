@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ProjectManagerService implements ProjectManagerDomain {
@@ -40,5 +41,10 @@ public class ProjectManagerService implements ProjectManagerDomain {
     @Override
     public List<ProjectManager> getProjectManager() {
         return projectManagerRepository.findAll();
+    }
+
+    @Override
+    public Optional<ProjectManager> getProjectManagerById(int id) {
+        return projectManagerRepository.findById(id);
     }
 }
