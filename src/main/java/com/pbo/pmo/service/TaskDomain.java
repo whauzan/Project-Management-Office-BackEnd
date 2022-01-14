@@ -9,6 +9,5 @@ import java.util.List;
 public interface TaskDomain {
     List<Task> getAllTaskByScrumID(int scrum_id);
     Task addTask(TaskRequest taskRequest);
-    Task editStatus(Integer id);
-
+    Task doneTask(int id);
 }

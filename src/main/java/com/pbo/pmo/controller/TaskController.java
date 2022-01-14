@@ -25,4 +25,9 @@ public class TaskController {
     public List<Task> list(@RequestParam int scrum_id){
         return taskDomain.getAllTaskByScrumID(scrum_id);
     }
+
+    @PostMapping("/taskdone")
+    public Task doneTask(@RequestParam int id) {
+        return taskDomain.doneTask(id);
+    }
 }

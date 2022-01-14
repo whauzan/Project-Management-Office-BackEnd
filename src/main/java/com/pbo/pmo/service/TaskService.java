@@ -53,7 +53,12 @@ public class TaskService implements TaskDomain{
     }
 
     @Override
-    public Task editStatus(Integer id) {
-        return null;
+    public Task doneTask(int id) {
+        Task task = taskRepository.findById(id)
+                .orElseThrow(() -> new IllegalStateException(
+                        "task with id " + id + " does not exist"
+                ));
+        task.setDone(true);
+        return taskRepository.save(task);
     }
 }
