@@ -37,10 +37,8 @@ public class Team {
     @JsonManagedReference
     private Set<Employee> memberSet;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "scrum_id", referencedColumnName = "id")
-    private Scrum scrum;
-
+    @Column(name = "scrum_idx")
+    private int scrum_idx;
 
     public Team() {
     }
@@ -83,5 +81,13 @@ public class Team {
 
     public void setCompany(Company company) {
         this.company = company;
+    }
+
+    public int getScrum_idx() {
+        return scrum_idx;
+    }
+
+    public void setScrum_idx(int scrum_idx) {
+        this.scrum_idx = scrum_idx;
     }
 }

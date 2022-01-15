@@ -35,6 +35,9 @@ public class Scrum {
     @JsonManagedReference
     private Set<Task> taskSet;
 
+    public Scrum() {
+    }
+
     public int getId() {
         return id;
     }

@@ -41,6 +41,9 @@ public class Task {
     @JsonBackReference
     private Scrum scrum;
 
+    public Task() {
+    }
+
     public int getId() {
         return id;
     }
