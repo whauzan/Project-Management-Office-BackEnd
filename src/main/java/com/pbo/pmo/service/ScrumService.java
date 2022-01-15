@@ -40,8 +40,11 @@ public class ScrumService implements ScrumDomain{
         scrum.setProject(project);
         scrum.setName("Scrum of "+project.getName());
         scrum.setTeam(team);
+        scrumRepository.save(scrum);
 
-        return scrumRepository.save(scrum);
+        team.setScrum_idx(scrum.getId());
+        teamRepository.save(team);
+        return scrum;
     }
 
     @Override
